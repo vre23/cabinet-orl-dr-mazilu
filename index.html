@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cabinet O.R.L. Dr. Florin Vasile Mazilu | ORL Drobeta-Turnu Severin</title>
+  <meta name="description" content="Cabinet O.R.L. Dr. Florin Vasile Mazilu — medic specialist ORL, absolvent UMF Craiova, pregătire în Franța. Consultații, endoscopie, chirurgie ORL. Programări: 0749 960 819. Drobeta-Turnu Severin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #1a5276;
+      --teal-dark: #0e3a55;
+      --teal-light: #2980b9;
+      --teal-pale: #eaf2f8;
+      --slate: #1a1a2e;
+      --slate-light: #2d3748;
+      --cream: #f7f9fb;
+      --white: #ffffff;
+      --text: #1a1a2e;
+      --text-light: #5a6a7a;
+      --accent-warm: #c9a84c;
+      --shadow-soft: 0 4px 30px rgba(13, 110, 110, 0.06);
+      --shadow-card: 0 8px 40px rgba(13, 110, 110, 0.08);
+      --shadow-hover: 0 12px 50px rgba(13, 110, 110, 0.14);
+      --radius: 8px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(25px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+    .anim { opacity:0; transform:translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .anim.visible { opacity:1; transform:translateY(0); }
+
+    /* ── Top bar ── */
+    .top-bar {
+      background: var(--slate);
+      color: rgba(255,255,255,0.65);
+      font-size: 0.78rem;
+      padding: 0.45rem 0;
+      letter-spacing: 0.01em;
+    }
+    .top-bar .container { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; }
+    .top-bar a { color: var(--teal-light); text-decoration:none; }
+    .top-bar a:hover { color:#fff; }
+
+    /* ── Header ── */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid rgba(13,110,110,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-soft);
+    }
+    .header-inner {
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 0.9rem 2rem; max-width:1100px; margin:0 auto;
+    }
+    .logo { display:flex; align-items:center; gap:0.8rem; text-decoration:none; color:var(--slate); }
+    .logo-icon {
+      width:46px; height:46px;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      border-radius:12px; display:flex; align-items:center; justify-content:center;
+    }
+    .logo-icon svg { width:22px; height:22px; }
+    .logo-text h1 { font-family:var(--font-display); font-size:1.35rem; font-weight:700; line-height:1.1; }
+    .logo-text span { font-size:0.65rem; color:var(--text-light); text-transform:uppercase; letter-spacing:0.12em; font-weight:600; }
+    nav { display:flex; align-items:center; gap:0.2rem; }
+    nav a { color:var(--text); text-decoration:none; font-size:0.83rem; font-weight:500; padding:0.5rem 0.8rem; border-radius:var(--radius); transition:all 0.2s; }
+    nav a:hover { color:var(--teal); background:var(--teal-pale); }
+    .btn-prog {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      background:var(--teal); color:#fff; font-weight:700; font-size:0.82rem;
+      padding:0.65rem 1.3rem; border-radius:var(--radius); text-decoration:none;
+      border:none; cursor:pointer; transition:all 0.3s; letter-spacing:0.02em;
+    }
+    .btn-prog:hover { background:var(--teal-dark); transform:translateY(-1px); box-shadow:var(--shadow-hover); }
+    .menu-toggle { display:none; background:none; border:none; cursor:pointer; padding:0.5rem; }
+    .menu-toggle span { display:block; width:22px; height:2px; background:var(--slate); margin:4px 0; transition:0.3s; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--slate) 0%, #1a3a4a 50%, var(--teal-dark) 100%);
+      color:#fff; padding:5rem 0 6rem; position:relative; overflow:hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; top:-40%; right:-15%; width:500px; height:500px;
+      background:radial-gradient(circle, rgba(13,110,110,0.12) 0%, transparent 70%);
+      border-radius:50%;
+    }
+    .hero::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:100px;
+      background:linear-gradient(to top, var(--cream), transparent);
+    }
+    .hero .container { position:relative; z-index:1; display:grid; grid-template-columns:1.3fr 0.7fr; gap:3.5rem; align-items:center; }
+    .hero-content { animation:fadeUp 0.8s ease; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      background:rgba(13,110,110,0.15); border:1px solid rgba(13,110,110,0.3);
+      color:var(--teal-light); padding:0.35rem 0.9rem; border-radius:25px;
+      font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1.3rem;
+    }
+    .hero-badge::before { content:''; width:6px; height:6px; background:var(--teal-light); border-radius:50%; animation:pulse 2s infinite; }
+    .hero h2 { font-family:var(--font-display); font-size:3rem; font-weight:700; line-height:1.15; margin-bottom:1.3rem; }
+    .hero h2 em { font-style:italic; color:var(--teal-light); }
+    .hero p { font-size:1.05rem; color:rgba(255,255,255,0.65); line-height:1.8; margin-bottom:2.2rem; max-width:500px; }
+    .hero-actions { display:flex; gap:1rem; align-items:center; }
+    .btn-hero {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:var(--teal-light); color:var(--slate); font-weight:700; font-size:0.92rem;
+      padding:0.9rem 1.8rem; border-radius:var(--radius); text-decoration:none; transition:all 0.3s;
+    }
+    .btn-hero:hover { background:#fff; transform:translateY(-2px); box-shadow:0 8px 30px rgba(13,110,110,0.3); }
+    .btn-ghost { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.88rem; font-weight:500; padding:0.9rem 1.3rem; border:1px solid rgba(255,255,255,0.15); border-radius:var(--radius); transition:all 0.3s; }
+    .btn-ghost:hover { border-color:var(--teal-light); color:var(--teal-light); }
+
+    .hero-visual { animation:fadeUp 0.8s ease 0.3s both; }
+    .visual-card {
+      background:rgba(255,255,255,0.04); backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:2.2rem;
+    }
+    .visual-card .orl-icon {
+      width:80px; height:80px; margin:0 auto 1.5rem;
+      background:rgba(13,110,110,0.15); border:1.5px solid rgba(13,110,110,0.3);
+      border-radius:50%; display:flex; align-items:center; justify-content:center;
+    }
+    .visual-card .orl-icon svg { width:36px; height:36px; color:var(--teal-light); }
+    .v-stat { display:flex; align-items:center; gap:1rem; padding:0.9rem 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .v-stat:last-child { border-bottom:none; }
+    .v-stat-num { font-family:var(--font-display); font-size:2rem; font-weight:700; color:var(--teal-light); min-width:55px; line-height:1; }
+    .v-stat-label { font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.4; }
+    .v-stat-label strong { color:rgba(255,255,255,0.85); display:block; }
+
+    /* ── Sections ── */
+    section { padding:4.5rem 0; }
+    .section-title { text-align:center; margin-bottom:3rem; }
+    .section-title .overline { font-size:0.72rem; font-weight:700; color:var(--teal); text-transform:uppercase; letter-spacing:0.2em; margin-bottom:0.7rem; display:block; }
+    .section-title h2 { font-family:var(--font-display); font-size:2.2rem; font-weight:700; color:var(--slate); line-height:1.2; margin-bottom:0.8rem; }
+    .section-title p { color:var(--text-light); max-width:520px; margin:0 auto; font-size:0.95rem; }
+
+    /* ── Services ── */
+    .services { background:var(--white); }
+    .srv-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.3rem; }
+    .srv-card {
+      background:var(--cream); border:1px solid rgba(13,110,110,0.04); border-radius:10px;
+      padding:1.8rem; transition:all 0.4s; position:relative; overflow:hidden;
+    }
+    .srv-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:var(--teal); transform:scaleX(0); transition:transform 0.4s; transform-origin:left; }
+    .srv-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-hover); }
+    .srv-card:hover::before { transform:scaleX(1); }
+    .srv-icon {
+      width:42px; height:42px; background:linear-gradient(135deg, var(--teal), var(--teal-dark));
+      border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#fff;
+    }
+    .srv-card h3 { font-family:var(--font-display); font-size:1.2rem; font-weight:700; color:var(--slate); margin-bottom:0.4rem; }
+    .srv-card p { font-size:0.85rem; color:var(--text-light); line-height:1.6; }
+
+    /* ── About ── */
+    .about { background:var(--cream); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
+    .about-photo {
+      height:360px; background:linear-gradient(135deg, var(--teal-dark) 0%, var(--slate) 100%);
+      border-radius:14px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+    }
+    .about-photo .initials { font-family:var(--font-display); font-size:5rem; font-weight:700; color:var(--teal-light); opacity:0.2; }
+    .about-photo .badge-orl {
+      position:absolute; bottom:1rem; right:1rem; background:var(--teal); color:#fff;
+      font-size:0.7rem; font-weight:700; padding:0.3rem 0.8rem; border-radius:5px;
+      text-transform:uppercase; letter-spacing:0.08em;
+    }
+    .about-text h2 { font-family:var(--font-display); font-size:2rem; font-weight:700; color:var(--slate); margin-bottom:1rem; line-height:1.2; }
+    .about-text p { color:var(--text-light); margin-bottom:1rem; font-size:0.92rem; line-height:1.8; }
+    .about-detail { display:flex; align-items:center; gap:0.8rem; padding:0.7rem 0; }
+    .about-detail .ad-icon {
+      width:36px; height:36px; background:var(--teal-pale); border-radius:8px;
+      display:flex; align-items:center; justify-content:center; color:var(--teal); flex-shrink:0;
+    }
+    .about-detail .ad-label { font-size:0.78rem; color:var(--text-light); }
+    .about-detail .ad-value { font-size:0.9rem; font-weight:600; color:var(--slate); }
+
+    /* ── Booking ── */
+    .booking {
+      background:linear-gradient(135deg, var(--slate) 0%, #1a3a4a 100%);
+      color:#fff; position:relative; overflow:hidden;
+    }
+    .booking::before {
+      content:''; position:absolute; top:-80px; right:-80px; width:350px; height:350px;
+      background:radial-gradient(circle, rgba(13,110,110,0.08) 0%, transparent 70%); border-radius:50%;
+    }
+    .booking .container { position:relative; z-index:1; }
+    .booking-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:start; }
+    .booking-info h2 { font-family:var(--font-display); font-size:2.2rem; font-weight:700; margin-bottom:1.2rem; line-height:1.2; }
+    .booking-info h2 em { color:var(--teal-light); font-style:italic; }
+    .booking-info p { color:rgba(255,255,255,0.65); margin-bottom:1.8rem; line-height:1.8; }
+    .contact-detail { display:flex; align-items:center; gap:0.9rem; padding:0.9rem 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .contact-detail:last-child { border-bottom:none; }
+    .contact-icon {
+      width:40px; height:40px; background:rgba(13,110,110,0.12); border:1px solid rgba(13,110,110,0.25);
+      border-radius:9px; display:flex; align-items:center; justify-content:center; color:var(--teal-light); flex-shrink:0;
+    }
+    .contact-detail .label { font-size:0.72rem; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.1em; }
+    .contact-detail .value { font-size:0.95rem; font-weight:600; }
+    .contact-detail .value a { color:var(--teal-light); text-decoration:none; }
+    .contact-detail .value a:hover { text-decoration:underline; }
+
+    /* ── Booking form/calendar ── */
+    .booking-form {
+      background:rgba(255,255,255,0.03); backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:2.2rem;
+    }
+    .booking-form h3 { font-family:var(--font-display); font-size:1.4rem; font-weight:700; margin-bottom:0.3rem; }
+    .booking-form .subtitle { font-size:0.82rem; color:rgba(255,255,255,0.45); margin-bottom:1.5rem; }
+    .steps-indicator { display:flex; gap:0.4rem; margin-bottom:1.5rem; }
+    .step-dot { flex:1; height:3px; border-radius:3px; background:rgba(255,255,255,0.08); transition:background 0.4s; }
+    .step-dot.active { background:var(--teal-light); }
+    .step-dot.done { background:rgba(20,163,163,0.35); }
+    .booking-step { display:none; }
+    .booking-step.active { display:block; animation:fadeUp 0.4s ease; }
+
+    .form-group { margin-bottom:1.1rem; }
+    .form-group label { display:block; font-size:0.75rem; font-weight:600; color:rgba(255,255,255,0.65); margin-bottom:0.35rem; text-transform:uppercase; letter-spacing:0.06em; }
+    .form-group input, .form-group select, .form-group textarea {
+      width:100%; padding:0.75rem 0.9rem; background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius);
+      color:#fff; font-family:var(--font-body); font-size:0.88rem; transition:border-color 0.3s;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color:rgba(255,255,255,0.25); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--teal-light); }
+    .form-group select option { background:var(--slate); color:#fff; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+
+    /* Calendar */
+    .cal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.8rem; }
+    .cal-header .cal-month { font-family:var(--font-display); font-size:1.1rem; font-weight:700; }
+    .cal-nav {
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+      color:#fff; width:30px; height:30px; border-radius:6px; cursor:pointer;
+      display:flex; align-items:center; justify-content:center; transition:all 0.2s; font-size:0.8rem;
+    }
+    .cal-nav:hover { background:rgba(13,110,110,0.2); border-color:var(--teal-light); }
+    .cal-weekdays { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; margin-bottom:3px; }
+    .cal-weekdays span { text-align:center; font-size:0.62rem; font-weight:700; color:rgba(255,255,255,0.3); text-transform:uppercase; letter-spacing:0.06em; padding:0.35rem 0; }
+    .cal-days { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; }
+    .cal-day {
+      aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+      border-radius:7px; font-size:0.8rem; font-weight:500; cursor:pointer; transition:all 0.2s;
+      border:1px solid transparent; background:rgba(255,255,255,0.02); color:rgba(255,255,255,0.6); position:relative;
+    }
+    .cal-day:hover:not(.disabled):not(.empty) { background:rgba(13,110,110,0.15); border-color:rgba(13,110,110,0.35); color:#fff; }
+    .cal-day.selected { background:var(--teal-light) !important; color:var(--slate) !important; font-weight:700; border-color:var(--teal-light) !important; box-shadow:0 0 12px rgba(13,110,110,0.35); }
+    .cal-day.today { border-color:rgba(13,110,110,0.4); color:var(--teal-light); }
+    .cal-day.disabled { opacity:0.18; cursor:not-allowed; background:transparent; }
+    .cal-day.empty { background:transparent; cursor:default; }
+    .cal-day.has-slots::after { content:''; position:absolute; bottom:3px; width:4px; height:4px; border-radius:50%; background:#4ade80; }
+    .slots-label { font-size:0.72rem; font-weight:600; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem; margin-top:1rem; }
+    .slot-period { font-size:0.62rem; font-weight:700; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.06em; margin-top:0.8rem; margin-bottom:0.35rem; }
+    .slots-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.4rem; }
+    .slot {
+      padding:0.55rem 0.3rem; text-align:center; font-size:0.78rem; font-weight:600;
+      border-radius:6px; cursor:pointer; transition:all 0.2s;
+      border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); color:rgba(255,255,255,0.65);
+    }
+    .slot:hover { background:rgba(13,110,110,0.15); border-color:rgba(13,110,110,0.3); color:#fff; }
+    .slot.selected { background:var(--teal-light); color:var(--slate); border-color:var(--teal-light); }
+    .slot.taken { opacity:0.22; cursor:not-allowed; text-decoration:line-through; }
+
+    .step-nav { display:flex; gap:0.7rem; margin-top:1.3rem; }
+    .btn-step { flex:1; padding:0.75rem; border-radius:var(--radius); font-family:var(--font-body); font-weight:700; font-size:0.83rem; cursor:pointer; transition:all 0.3s; text-transform:uppercase; letter-spacing:0.04em; border:none; }
+    .btn-step-back { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.6); }
+    .btn-step-back:hover { border-color:rgba(255,255,255,0.25); color:#fff; }
+    .btn-step-next { background:var(--teal-light); color:var(--slate); }
+    .btn-step-next:hover { background:#fff; }
+    .btn-step-next:disabled { opacity:0.3; cursor:not-allowed; }
+    .confirm-summary { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:8px; padding:1.1rem; margin-bottom:1.1rem; }
+    .confirm-row { display:flex; justify-content:space-between; padding:0.45rem 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:0.83rem; }
+    .confirm-row:last-child { border-bottom:none; }
+    .confirm-row .cr-label { color:rgba(255,255,255,0.45); }
+    .confirm-row .cr-value { color:#fff; font-weight:600; }
+
+    /* ── Info cards ── */
+    .info-section { background:var(--white); }
+    .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .info-card { text-align:center; padding:2.2rem 1.8rem; background:var(--cream); border-radius:10px; border:1px solid rgba(13,110,110,0.04); }
+    .info-icon { width:56px; height:56px; background:linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:#fff; }
+    .info-card h3 { font-family:var(--font-display); font-size:1.15rem; font-weight:700; color:var(--slate); margin-bottom:0.4rem; }
+    .info-card p { font-size:0.85rem; color:var(--text-light); line-height:1.6; }
+
+    /* ── Map ── */
+    .map-section { background:var(--cream); padding:2.5rem 0 4rem; }
+    .map-wrapper { border-radius:12px; overflow:hidden; box-shadow:var(--shadow-card); border:1px solid rgba(13,110,110,0.05); }
+    .map-wrapper iframe { display:block; width:100%; height:350px; border:none; }
+
+    /* ── Footer ── */
+    footer { background:var(--slate); color:rgba(255,255,255,0.55); padding:2.5rem 0 1.5rem; }
+    .footer-inner { display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:2rem; margin-bottom:2rem; }
+    .footer-brand h3 { font-family:var(--font-display); font-size:1.3rem; font-weight:700; color:#fff; margin-bottom:0.5rem; }
+    .footer-brand p { font-size:0.82rem; line-height:1.7; max-width:320px; }
+    .footer-links h4 { color:#fff; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.8rem; }
+    .footer-links ul { list-style:none; }
+    .footer-links ul li { margin-bottom:0.4rem; }
+    .footer-links ul a { color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.82rem; transition:color 0.2s; }
+    .footer-links ul a:hover { color:var(--teal-light); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.06); padding-top:1.2rem; display:flex; justify-content:space-between; font-size:0.75rem; }
+    .footer-bottom a { color:var(--teal-light); text-decoration:none; }
+
+    /* ── CTA float ── */
+    .cta-float { position:fixed; bottom:1.8rem; right:1.8rem; z-index:90; animation:fadeUp 0.6s ease 1s both; }
+    .cta-float a {
+      display:flex; align-items:center; gap:0.5rem;
+      background:var(--teal); color:#fff; font-weight:700; font-size:0.82rem;
+      padding:0.85rem 1.4rem; border-radius:50px; text-decoration:none;
+      box-shadow:0 8px 30px rgba(13,110,110,0.4); transition:all 0.3s;
+    }
+    .cta-float a:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 12px 40px rgba(13,110,110,0.5); }
+
+    /* ── Responsive ── */
+    @media (max-width:768px) {
+      .header-inner { padding:0.7rem 1rem; }
+      nav { display:none; }
+      .menu-toggle { display:block; }
+      nav.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--white); padding:1rem; box-shadow:var(--shadow-card); }
+      .hero { padding:3rem 0 3.5rem; }
+      .hero .container { grid-template-columns:1fr; gap:2rem; }
+      .hero h2 { font-size:2rem; }
+      .hero-actions { flex-direction:column; align-items:stretch; }
+      .about-grid { grid-template-columns:1fr; }
+      .about-photo { height:220px; }
+      .booking-grid { grid-template-columns:1fr; gap:2rem; }
+      .info-grid { grid-template-columns:1fr; }
+      .section-title h2 { font-size:1.7rem; }
+      .form-row { grid-template-columns:1fr; }
+      .footer-inner { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="container">
+    <div>Cabinet ORL &bull; Bd. Mihai Viteazul 21, Drobeta-Turnu Severin</div>
+    <div>Programari: <a href="tel:0749960819">0749 960 819</a> &nbsp;|&nbsp; L-V: 09:00-17:00</div>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon" style="background:linear-gradient(135deg,var(--teal),var(--teal-dark));border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;">
+          <path d="M20 4c-5 0-9 4-9 9v2c0 3 1 5 3 7l-2 6c-1 2 0 4 2 5h12c2-1 3-3 2-5l-2-6c2-2 3-4 3-7v-2c0-5-4-9-9-9z" stroke="#c9a84c" stroke-width="1.8" fill="none"/>
+          <circle cx="16" cy="15" r="1" fill="#c9a84c"/>
+          <path d="M14 20c0 0 3 3 6 3s6-3 6-3" stroke="#c9a84c" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <path d="M25 12c2 0 4 1 5 3" stroke="#c9a84c" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <h1>Cabinet O.R.L.</h1>
+        <span>Dr. Florin Vasile Mazilu</span>
+      </div>
+    </a>
+    <nav id="mainNav">
+      <a href="#servicii">Servicii</a>
+      <a href="#despre">Despre</a>
+      <a href="#programare">Programare</a>
+      <a href="#contact">Contact</a>
+      <a href="#programare" class="btn-prog">Programare Online</a>
+    </nav>
+    <button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Acceptam programari online</div>
+      <h2>Specialist ORL in <em>Drobeta-Turnu Severin</em></h2>
+      <p>Diagnostic si tratament complet al afectiunilor urechii, nasului si gatului. Consultati, investigatii si interventii ORL cu aparatura moderna, intr-un cabinet accesibil si prietenos.</p>
+      <div class="hero-actions">
+        <a href="#programare" class="btn-hero">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Programeaza-te Online
+        </a>
+        <a href="tel:0749960819" class="btn-ghost">Suna acum</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="visual-card">
+        <div class="orl-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
+        </div>
+        <div class="v-stat">
+          <div class="v-stat-num">ORL</div>
+          <div class="v-stat-label"><strong>Otorinolaringologie</strong>Ureche, nas, gat</div>
+        </div>
+        <div class="v-stat">
+          <div class="v-stat-num">2.5k</div>
+          <div class="v-stat-label"><strong>Pacienti multumiti</strong>Comunitate activa pe Facebook</div>
+        </div>
+        <div class="v-stat">
+          <div class="v-stat-num">30'</div>
+          <div class="v-stat-label"><strong>Consultatie completa</strong>Diagnostic + plan de tratament</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="servicii">
+  <div class="container">
+    <div class="section-title anim">
+      <span class="overline">Servicii ORL</span>
+      <h2>Diagnostic si tratament complet</h2>
+      <p>Consultati de specialitate pentru toate afectiunile sferei ORL, de la cele mai comune la cele mai complexe.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card anim">
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></div>
+        <h3>Consultatie ORL</h3>
+        <p>Examinare completa a urechii, nasului si gatului. Anamneza detaliata, examen clinic si stabilirea diagnosticului cu plan de tratament personalizat.</p>
+      </div>
+      <div class="srv-card anim">
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Endoscopie ORL</h3>
+        <p>Examinare endoscopica a cavitatii nazale, faringelui si laringelui pentru diagnostic precis al afectiunilor ascunse examenului direct.</p>
+      </div>
+      <div class="srv-card anim">
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/></svg></div>
+        <h3>Audiometrie</h3>
+        <p>Testarea auzului prin audiometrie tonala si vocala. Evaluare completa a pierderilor de auz si recomandari personalizate de tratament.</p>
+      </div>
+      <div class="srv-card anim">
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3>Sinuzita si Rinita</h3>
+        <p>Diagnostic si tratament al sinuzitei acute si cronice, rinitei alergice si vasomotorii. Spalatura sinusala, tratamente topice si sistemice.</p>
+      </div>
+      <div class="srv-card anim">
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+        <h3>Faringita si Amigdalita</h3>
+        <p>Tratamentul infectiilor gatului — faringita, amigdalita, laringita. Evaluare si recomandare pentru interventie chirurgicala cand este necesar.</p>
+      </div>
+      <div class="srv-card anim">
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <h3>Otita si Vertij</h3>
+        <p>Diagnostic si tratament al otitei medii si externe, acufene (tiuituri), vertij si tulburari de echilibru. Lavaj auricular.</p>
+      </div>
+      <div class="srv-card anim">
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h3>ORL Pediatric</h3>
+        <p>Consultatii ORL pentru copii — otite recurente, vegetatii adenoide, amigdalite cronice, tulburari de respiratie si sforait la copii.</p>
+      </div>
+      <div class="srv-card anim">
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Chirurgie ORL</h3>
+        <p>Amigdalectomii, adenoidectomii, interventii pe septul nazal. Tratamentul hipertrofiei amigdaliene si sindromului de apnee in somn.</p>
+      </div>
+      <div class="srv-card anim">
+        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg></div>
+        <h3>Spalatura Auriculara</h3>
+        <p>Curatarea profesionala a canalului auditiv, indepartarea dopurilor de ceara. Procedura rapida, sigura si nedureroasa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="despre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo anim">
+        <span class="initials">FVM</span>
+        <span class="badge-orl">Medic Specialist ORL</span>
+      </div>
+      <div class="about-text anim">
+        <h2>Dr. Florin Vasile Mazilu</h2>
+        <p>Medic specialist otorinolaringolog, absolvent al <strong>Universitatii de Medicina si Farmacie din Craiova</strong>. Pregatire internationala in Franta &mdash; rezidentiat la <strong>Centre Hospitalier Les Chanaux</strong> si <strong>Centre Hospitalier Public du Cotentin</strong>.</p>
+        <p>Experienta clinica in <strong>Spitalul Judetean de Urgenta Drobeta Turnu-Severin</strong> si Spitalul Orasenesc Bals, inainte de a deschide propriul cabinet privat. Cabinetul este nou, modern si echipat cu aparatura de ultima generatie, asigurand diagnostic corect si rapid.</p>
+        <div class="about-detail">
+          <div class="ad-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="ad-label">Adresa</div><div class="ad-value">Bd. Mihai Viteazul Nr. 21, Bl. A2, Drobeta-Turnu Severin 220044</div></div>
+        </div>
+        <div class="about-detail">
+          <div class="ad-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="ad-label">Program</div><div class="ad-value">Luni &ndash; Vineri: 09:00 &ndash; 17:00</div></div>
+        </div>
+        <div class="about-detail">
+          <div class="ad-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/></svg></div>
+          <div><div class="ad-label">Telefon</div><div class="ad-value"><a href="tel:0749960819" style="color:var(--teal);text-decoration:none;">0749 960 819</a></div></div>
+        </div>
+        <div class="about-detail">
+          <div class="ad-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+          <div><div class="ad-label">Facebook</div><div class="ad-value"><a href="https://www.facebook.com/cabinetorldrmazilu/" target="_blank" style="color:var(--teal);text-decoration:none;">Cabinet ORL - Dr. Mazilu (2.484 likes)</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Info Section -->
+<section class="info-section">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-card anim">
+        <div class="info-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Locatie Centrala</h3>
+        <p>Bd. Mihai Viteazul 21, usor accesibil din orice zona a orasului. Parcari disponibile in zona.</p>
+      </div>
+      <div class="info-card anim">
+        <div class="info-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Fara Asteptare</h3>
+        <p>Consultati pe baza de programare. Nu pierdeti timp la cozi — veniti la ora stabilita.</p>
+      </div>
+      <div class="info-card anim">
+        <div class="info-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Adulti si Copii</h3>
+        <p>Primim pacienti de toate varstele. Experienta cu probleme ORL pediatrice frecvente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking -->
+<section class="booking" id="programare">
+  <div class="container">
+    <div class="booking-grid">
+      <div class="booking-info anim">
+        <h2>Programeaza-te <em>online</em></h2>
+        <p>Alegeti tipul de consultatie, selectati data si ora dorita din calendar, si confirmati. Veti primi un SMS de confirmare.</p>
+        <div class="contact-detail">
+          <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/></svg></div>
+          <div><div class="label">Telefon</div><div class="value"><a href="tel:0749960819">0749 960 819</a></div></div>
+        </div>
+        <div class="contact-detail" id="contact">
+          <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="label">Adresa</div><div class="value">Bd. Mihai Viteazul 21, Dr.-Turnu Severin</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div><div class="label">Program</div><div class="value">Luni &ndash; Vineri: 09:00 &ndash; 17:00</div></div>
+        </div>
+      </div>
+
+      <div class="booking-form anim">
+        <h3>Programare online</h3>
+        <div class="subtitle">Alegeti tipul de consultatie, data si ora dorita</div>
+        <div class="steps-indicator">
+          <div class="step-dot active" data-step="1"></div>
+          <div class="step-dot" data-step="2"></div>
+          <div class="step-dot" data-step="3"></div>
+          <div class="step-dot" data-step="4"></div>
+        </div>
+
+        <!-- Step 1: Service -->
+        <div class="booking-step active" id="step1">
+          <div class="form-group">
+            <label>Tip consultatie</label>
+            <select id="bkService" onchange="onServiceChange()">
+              <option value="">Selectati...</option>
+              <option value="consultatie-orl" data-duration="30">Consultatie ORL generala</option>
+              <option value="endoscopie" data-duration="25">Endoscopie ORL</option>
+              <option value="audiometrie" data-duration="20">Audiometrie (test auz)</option>
+              <option value="sinuzita" data-duration="25">Sinuzita / Rinita</option>
+              <option value="otita" data-duration="25">Otita / Vertij / Acufene</option>
+              <option value="orl-pediatric" data-duration="30">ORL Pediatric (copii)</option>
+              <option value="interventie" data-duration="20">Mica interventie</option>
+              <option value="control" data-duration="15">Control post-tratament</option>
+            </select>
+          </div>
+          <div id="servicePreview" style="display:none; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:8px; padding:0.9rem; margin-top:0.4rem;">
+            <div style="display:flex; align-items:center; gap:0.7rem;">
+              <div style="width:36px;height:36px;border-radius:50%;background:rgba(13,110,110,0.15);border:1px solid rgba(13,110,110,0.3);display:flex;align-items:center;justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#14a3a3" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/></svg>
+              </div>
+              <div>
+                <div style="font-weight:600;font-size:0.88rem;" id="srvName"></div>
+                <div style="font-size:0.72rem;color:var(--teal-light);font-weight:500;">Dr. Mazilu &bull; <span id="srvDuration"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="step-nav">
+            <button class="btn-step btn-step-next" id="btn1next" disabled onclick="goStep(2)">Alege data &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Calendar -->
+        <div class="booking-step" id="step2">
+          <div class="cal-header">
+            <button class="cal-nav" onclick="calNav(-1)">&larr;</button>
+            <span class="cal-month" id="calMonth"></span>
+            <button class="cal-nav" onclick="calNav(1)">&rarr;</button>
+          </div>
+          <div class="cal-weekdays"><span>Lu</span><span>Ma</span><span>Mi</span><span>Jo</span><span>Vi</span><span>Sa</span><span>Du</span></div>
+          <div class="cal-days" id="calDays"></div>
+          <div id="slotsContainer" style="display:none;">
+            <div class="slots-label" id="slotsDate"></div>
+            <div class="slot-period">Dimineata</div>
+            <div class="slots-grid" id="slotsMorning"></div>
+            <div class="slot-period">Dupa-amiaza</div>
+            <div class="slots-grid" id="slotsAfternoon"></div>
+          </div>
+          <div class="step-nav">
+            <button class="btn-step btn-step-back" onclick="goStep(1)">&larr; Inapoi</button>
+            <button class="btn-step btn-step-next" id="btn2next" disabled onclick="goStep(3)">Datele tale &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Patient info -->
+        <div class="booking-step" id="step3">
+          <div class="form-row">
+            <div class="form-group"><label>Nume</label><input type="text" id="bkFname" placeholder="Popescu"></div>
+            <div class="form-group"><label>Prenume</label><input type="text" id="bkLname" placeholder="Ion"></div>
+          </div>
+          <div class="form-group"><label>Telefon</label><input type="tel" id="bkPhone" placeholder="07xx xxx xxx"></div>
+          <div class="form-group"><label>Motiv consultatie (optional)</label><textarea id="bkMsg" rows="2" placeholder="Descrieti pe scurt simptomele..."></textarea></div>
+          <div class="step-nav">
+            <button class="btn-step btn-step-back" onclick="goStep(2)">&larr; Inapoi</button>
+            <button class="btn-step btn-step-next" onclick="goStep(4)">Confirma &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Confirm -->
+        <div class="booking-step" id="step4">
+          <div class="confirm-summary" id="confirmSummary"></div>
+          <div class="step-nav">
+            <button class="btn-step btn-step-back" onclick="goStep(3)">&larr; Modifica</button>
+            <button class="btn-step btn-step-next" onclick="submitBooking()">Confirma programarea</button>
+          </div>
+        </div>
+
+        <!-- Done -->
+        <div class="booking-step" id="stepDone">
+          <div style="text-align:center; padding:1.8rem 0;">
+            <div style="width:58px;height:58px;border-radius:50%;background:rgba(74,222,128,0.12);border:2px solid rgba(74,222,128,0.35);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.6rem;color:#4ade80;">&#10003;</div>
+            <h3 style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:0.4rem;">Programare confirmata!</h3>
+            <p style="color:rgba(255,255,255,0.55);font-size:0.85rem;margin-bottom:0.2rem;">Veti primi SMS de confirmare.</p>
+            <p style="color:rgba(255,255,255,0.35);font-size:0.75rem;">Puteti anula cu cel putin 2 ore inainte.</p>
+            <div style="margin-top:1.3rem;padding:0.9rem;background:rgba(13,110,110,0.1);border:1px solid rgba(13,110,110,0.2);border-radius:8px;">
+              <div style="font-size:0.65rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.2rem;">Cod programare</div>
+              <div style="font-family:monospace;font-size:1.2rem;font-weight:700;color:var(--teal-light);letter-spacing:0.15em;" id="bookingCode"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-title anim">
+      <span class="overline">Locatie</span>
+      <h2>Unde ne gasiti</h2>
+      <p>Bd. Mihai Viteazul 21, Drobeta-Turnu Severin, Jud. Mehedinti</p>
+    </div>
+    <div class="map-wrapper anim">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2870.5!2d22.6560!3d44.6318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDM3JzU0LjUiTiAyMsKwMzknMjEuNiJF!5e0!3m2!1sen!2sro!4v1" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Cabinet O.R.L. Dr. Florin Vasile Mazilu</h3>
+        <p>Specialist ORL in Drobeta-Turnu Severin. Consultati, diagnostic si tratament al afectiunilor urechii, nasului si gatului pentru adulti si copii.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Servicii</h4>
+        <ul>
+          <li><a href="#servicii">Consultatie ORL</a></li>
+          <li><a href="#servicii">Endoscopie</a></li>
+          <li><a href="#servicii">Audiometrie</a></li>
+          <li><a href="#servicii">ORL Pediatric</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0749960819">0749 960 819</a></li>
+          <li><a href="#programare">Programare online</a></li>
+          <li><a href="https://facebook.com/cabinetorldrmazilu" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Cabinet O.R.L. Dr. Florin Vasile Mazilu. Toate drepturile rezervate.</div>
+      <div>Realizat de <a href="#">ApolloIQ</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- CTA Float -->
+<div class="cta-float">
+  <a href="tel:0749960819">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/></svg>
+    Suna Acum
+  </a>
+</div>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 70); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+
+  // Booking state
+  const state = { step:1, service:'', duration:0, date:null, time:'', fname:'', lname:'', phone:'', msg:'' };
+  let calYear, calMo;
+  const now = new Date(); calYear = now.getFullYear(); calMo = now.getMonth();
+  const MO = ['Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie','Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie'];
+  const DA = ['Duminica','Luni','Marti','Miercuri','Joi','Vineri','Sambata'];
+
+  function seedRng(s) { return function() { s=(s*16807)%2147483647; return (s-1)/2147483646; }; }
+  function getSlotsForDate(d) {
+    const day=d.getDay(); if(day===0||day===6) return [];
+    const seed=d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate();
+    const r=seedRng(seed);
+    const m=['09:00','09:30','10:00','10:30','11:00','11:30','12:00'];
+    const a=['13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30'];
+    return [...m,...a].map(t=>({time:t, period:parseInt(t)<13?'morning':'afternoon', taken:r()<0.25}));
+  }
+
+  function goStep(n) {
+    if(n===2&&!state.service) return;
+    if(n===3&&(!state.date||!state.time)) return;
+    state.step=n;
+    document.querySelectorAll('.booking-step').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.step-dot').forEach((d,i)=>{ d.classList.remove('active','done'); if(i+1===n) d.classList.add('active'); else if(i+1<n) d.classList.add('done'); });
+    if(n<=4) document.getElementById('step'+n).classList.add('active');
+    if(n===2) renderCalendar();
+    if(n===4) renderConfirmation();
+  }
+
+  function onServiceChange() {
+    const sel=document.getElementById('bkService');
+    const opt=sel.options[sel.selectedIndex];
+    if(!opt.value){ state.service=''; document.getElementById('servicePreview').style.display='none'; document.getElementById('btn1next').disabled=true; return; }
+    state.service=opt.textContent;
+    state.duration=parseInt(opt.dataset.duration);
+    document.getElementById('srvName').textContent=state.service;
+    document.getElementById('srvDuration').textContent=state.duration+' min';
+    document.getElementById('servicePreview').style.display='block';
+    document.getElementById('btn1next').disabled=false;
+    state.date=null; state.time='';
+  }
+
+  function renderCalendar() {
+    document.getElementById('calMonth').textContent=MO[calMo]+' '+calYear;
+    const first=new Date(calYear,calMo,1); const last=new Date(calYear,calMo+1,0);
+    let start=first.getDay(); start=start===0?6:start-1;
+    const today=new Date(); today.setHours(0,0,0,0);
+    const c=document.getElementById('calDays'); c.innerHTML='';
+    for(let i=0;i<start;i++){ const e=document.createElement('div'); e.className='cal-day empty'; c.appendChild(e); }
+    for(let d=1;d<=last.getDate();d++){
+      const dt=new Date(calYear,calMo,d); const e=document.createElement('div'); e.className='cal-day'; e.textContent=d;
+      if(dt<today||dt.getDay()===0||dt.getDay()===6){ e.classList.add('disabled'); }
+      else {
+        const sl=getSlotsForDate(dt); if(sl.filter(s=>!s.taken).length>0) e.classList.add('has-slots');
+        if(dt.getTime()===today.getTime()) e.classList.add('today');
+        if(state.date&&dt.toDateString()===state.date.toDateString()) e.classList.add('selected');
+        e.onclick=()=>selectDate(dt);
+      }
+      c.appendChild(e);
+    }
+  }
+  function calNav(dir) {
+    calMo+=dir; if(calMo>11){calMo=0;calYear++;} if(calMo<0){calMo=11;calYear--;}
+    const n=new Date(); if(calYear<n.getFullYear()||(calYear===n.getFullYear()&&calMo<n.getMonth())){calYear=n.getFullYear();calMo=n.getMonth();}
+    renderCalendar();
+  }
+  function selectDate(dt) { state.date=dt; state.time=''; document.getElementById('btn2next').disabled=true; renderCalendar(); renderSlots(dt); }
+  function renderSlots(dt) {
+    document.getElementById('slotsContainer').style.display='block';
+    document.getElementById('slotsDate').textContent=DA[dt.getDay()]+', '+dt.getDate()+' '+MO[dt.getMonth()];
+    const sl=getSlotsForDate(dt);
+    renderSlotGroup('slotsMorning',sl.filter(s=>s.period==='morning'));
+    renderSlotGroup('slotsAfternoon',sl.filter(s=>s.period==='afternoon'));
+    document.getElementById('slotsContainer').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+  function renderSlotGroup(id,slots) {
+    const c=document.getElementById(id); c.innerHTML='';
+    slots.forEach(s=>{ const e=document.createElement('div'); e.className='slot'+(s.taken?' taken':''); if(state.time===s.time) e.classList.add('selected'); e.textContent=s.time; if(!s.taken) e.onclick=()=>selectSlot(s.time); c.appendChild(e); });
+  }
+  function selectSlot(t) { state.time=t; document.getElementById('btn2next').disabled=false; renderSlots(state.date); }
+
+  function renderConfirmation() {
+    state.fname=document.getElementById('bkFname').value||'';
+    state.lname=document.getElementById('bkLname').value||'';
+    state.phone=document.getElementById('bkPhone').value||'';
+    state.msg=document.getElementById('bkMsg').value||'';
+    const ds=state.date.getDate()+' '+MO[state.date.getMonth()]+' '+state.date.getFullYear();
+    document.getElementById('confirmSummary').innerHTML=`
+      <div class="confirm-row"><span class="cr-label">Consultatie</span><span class="cr-value">${state.service}</span></div>
+      <div class="confirm-row"><span class="cr-label">Medic</span><span class="cr-value">Dr. Mazilu</span></div>
+      <div class="confirm-row"><span class="cr-label">Data</span><span class="cr-value">${DA[state.date.getDay()]}, ${ds}</span></div>
+      <div class="confirm-row"><span class="cr-label">Ora</span><span class="cr-value">${state.time}</span></div>
+      <div class="confirm-row"><span class="cr-label">Durata</span><span class="cr-value">${state.duration} min</span></div>
+      ${state.fname?`<div class="confirm-row"><span class="cr-label">Pacient</span><span class="cr-value">${state.fname} ${state.lname}</span></div>`:''}
+      ${state.phone?`<div class="confirm-row"><span class="cr-label">Telefon</span><span class="cr-value">${state.phone}</span></div>`:''}
+    `;
+  }
+  function submitBooking() {
+    const code='ORL-'+String(state.date.getDate()).padStart(2,'0')+String(state.date.getMonth()+1).padStart(2,'0')+'-'+state.time.replace(':','')+'-'+Math.random().toString(36).substring(2,6).toUpperCase();
+    document.getElementById('bookingCode').textContent=code;
+    document.querySelectorAll('.booking-step').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.step-dot').forEach(d=>d.classList.add('done'));
+    document.getElementById('stepDone').classList.add('active');
+  }
+</script>
+</body>
+</html>
