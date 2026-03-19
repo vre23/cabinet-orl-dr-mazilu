@@ -10,17 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --teal: #1a5276;
-      --teal-dark: #0e3a55;
-      --teal-light: #2980b9;
-      --teal-pale: #eaf2f8;
-      --slate: #1a1a2e;
-      --slate-light: #2d3748;
-      --cream: #f7f9fb;
+      --teal: #1a6e7e;
+      --teal-dark: #0e4a56;
+      --teal-light: #2ec4b6;
+      --teal-pale: #e8f8f6;
+      --slate: #0e2a3b;
+      --slate-light: #1a3d52;
+      --cream: #f6fafa;
       --white: #ffffff;
-      --text: #1a1a2e;
-      --text-light: #5a6a7a;
-      --accent-warm: #c9a84c;
+      --text: #0e2a3b;
+      --text-light: #5a7a8a;
+      --accent-warm: #2ec4b6;
       --shadow-soft: 0 4px 30px rgba(13, 110, 110, 0.06);
       --shadow-card: 0 8px 40px rgba(13, 110, 110, 0.08);
       --shadow-hover: 0 12px 50px rgba(13, 110, 110, 0.14);
@@ -369,12 +369,25 @@
 <header>
   <div class="header-inner">
     <a href="#" class="logo">
-      <div class="logo-icon" style="background:linear-gradient(135deg,var(--teal),var(--teal-dark));border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;">
-          <path d="M20 4c-5 0-9 4-9 9v2c0 3 1 5 3 7l-2 6c-1 2 0 4 2 5h12c2-1 3-3 2-5l-2-6c2-2 3-4 3-7v-2c0-5-4-9-9-9z" stroke="#c9a84c" stroke-width="1.8" fill="none"/>
-          <circle cx="16" cy="15" r="1" fill="#c9a84c"/>
-          <path d="M14 20c0 0 3 3 6 3s6-3 6-3" stroke="#c9a84c" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          <path d="M25 12c2 0 4 1 5 3" stroke="#c9a84c" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <div class="logo-icon" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:44px;height:44px;">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#2ec4b6"/>
+              <stop offset="100%" stop-color="#1a5276"/>
+            </linearGradient>
+          </defs>
+          <!-- Outer circle -->
+          <circle cx="25" cy="25" r="23" stroke="url(#logoGrad)" stroke-width="2.8" fill="none"/>
+          <!-- Head profile with ear, nose, chin -->
+          <path d="M18 13c-1 0-2 1-2 2v1c0 1 .5 2 1.5 2.5.5.3.5 1 .2 1.5-.5.5-.7 1.2-.7 2 0 1.5 1 2.5 1 2.5" stroke="#0e4a56" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M25 10c-3 0-5 2-6 4-1 3-1 5 0 7 .5 1 .5 2-.5 3l-2 3c-.5 1 0 2 1 2.5l3 1.5c1 .5 2 1.5 2.5 3l1 2c.3.8 1 1 1.5.5l2-3c1-1.5 2-3 2-5v-3c1.5-1 2.5-2.5 2.5-4.5 0-3-1.5-6-3.5-8-1-1-2-3-3.5-3z" fill="#0e4a56"/>
+          <!-- Ear -->
+          <path d="M35 19c1.5.5 2.5 2 2.5 4s-1 3.5-2.5 4" stroke="url(#logoGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M34 21c.8.3 1.3 1 1.3 2.2s-.5 2-1.3 2.3" stroke="url(#logoGrad)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <!-- Leaf/throat swoosh -->
+          <path d="M15 32c3-1 5 0 7 2s4 5 8 5" stroke="url(#logoGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M17 35c2-1 4 0 6 2s3 4 6 4" stroke="#0e4a56" stroke-width="1.5" fill="none" stroke-linecap="round"/>
         </svg>
       </div>
       <div class="logo-text">
@@ -442,47 +455,47 @@
     </div>
     <div class="srv-grid">
       <div class="srv-card anim">
-        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></div>
+        <div class="srv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><!-- Stethoscope / head exam --><path d="M20 4c-1 0-2 .5-2 2v3c0 2-1 3-3 3h-2v3c0 3-2 5-5 5s-5-2-5-5v-1"/><circle cx="8" cy="10" r="5"/><path d="M5 10h6"/><circle cx="20" cy="4" r="2"/></svg></div>
         <h3>Consultatie ORL</h3>
         <p>Examinare completa a urechii, nasului si gatului. Anamneza detaliata, examen clinic si stabilirea diagnosticului cu plan de tratament personalizat.</p>
       </div>
       <div class="srv-card anim">
-        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="srv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><!-- Endoscope / tube --><path d="M3 12h6l2-3v6l2-3h8"/><circle cx="22" cy="12" r="1.5"/><path d="M3 12c0-4 3-7 7-7"/></svg></div>
         <h3>Endoscopie ORL</h3>
-        <p>Examinare endoscopica a cavitatii nazale, faringelui si laringelui pentru diagnostic precis al afectiunilor ascunse examenului direct.</p>
+        <p>Endoscopie nazala si laringiana. Examinare endoscopica a cavitatii nazale, faringelui si laringelui pentru diagnostic precis.</p>
       </div>
       <div class="srv-card anim">
-        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/></svg></div>
+        <div class="srv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><!-- Ear --><path d="M6 12c0-4 3-7 6-7s5 2 5 5c0 2-1 3-2 4s-2 2-2 4c0 1-1 3-3 3-1 0-2-1-2-2"/><path d="M12 14c1-1 2-1 2-3s-1-3-2-3"/></svg></div>
         <h3>Audiometrie</h3>
         <p>Testarea auzului prin audiometrie tonala si vocala. Evaluare completa a pierderilor de auz si recomandari personalizate de tratament.</p>
       </div>
       <div class="srv-card anim">
-        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="srv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><!-- Nose / sinuses --><path d="M12 2v7"/><path d="M12 9c-2 0-4 2-5 5-1 2-1 4 0 5 1 1 3 1 5 1s4 0 5-1c1-1 1-3 0-5-1-3-3-5-5-5z"/><path d="M9 14h2M13 14h2"/></svg></div>
         <h3>Sinuzita si Rinita</h3>
         <p>Diagnostic si tratament al sinuzitei acute si cronice, rinitei alergice si vasomotorii. Spalatura sinusala, tratamente topice si sistemice.</p>
       </div>
       <div class="srv-card anim">
-        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+        <div class="srv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><!-- Throat / tonsils --><path d="M8 2c-1 0-2 1-2 3v4c0 3 2 6 6 6s6-3 6-6V5c0-2-1-3-2-3"/><circle cx="9" cy="8" r="1.5" fill="currentColor" opacity="0.3"/><circle cx="15" cy="8" r="1.5" fill="currentColor" opacity="0.3"/><path d="M10 12h4"/></svg></div>
         <h3>Faringita si Amigdalita</h3>
         <p>Tratamentul infectiilor gatului — faringita, amigdalita, laringita. Evaluare si recomandare pentru interventie chirurgicala cand este necesar.</p>
       </div>
       <div class="srv-card anim">
-        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        <div class="srv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><!-- Ear with waves (otitis/vertigo) --><path d="M6 12c0-4 3-7 6-7s5 2 5 5c0 2-1 3-2 4"/><path d="M2 10c0 0 1 2 1 3s-1 3-1 3"/><path d="M4 9c0 0 .5 2 .5 3s-.5 3-.5 3"/><circle cx="14" cy="13" r="1" fill="currentColor"/></svg></div>
         <h3>Otita si Vertij</h3>
         <p>Diagnostic si tratament al otitei medii si externe, acufene (tiuituri), vertij si tulburari de echilibru. Lavaj auricular.</p>
       </div>
       <div class="srv-card anim">
-        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="srv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><!-- Child face --><circle cx="12" cy="10" r="7"/><circle cx="9.5" cy="9" r="1" fill="currentColor"/><circle cx="14.5" cy="9" r="1" fill="currentColor"/><path d="M9.5 12.5c1 1.5 4 1.5 5 0"/><path d="M12 17v3M9 22h6"/></svg></div>
         <h3>ORL Pediatric</h3>
         <p>Consultatii ORL pentru copii — otite recurente, vegetatii adenoide, amigdalite cronice, tulburari de respiratie si sforait la copii.</p>
       </div>
       <div class="srv-card anim">
-        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="srv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><!-- Scalpel / surgery --><path d="M18 2l-8 8-2 6 6-2 8-8-4-4z"/><path d="M15 5l4 4"/><path d="M4 18l2-2"/><path d="M2 22l4-4"/></svg></div>
         <h3>Chirurgie ORL</h3>
         <p>Amigdalectomii, adenoidectomii, interventii pe septul nazal. Tratamentul hipertrofiei amigdaliene si sindromului de apnee in somn.</p>
       </div>
       <div class="srv-card anim">
-        <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg></div>
+        <div class="srv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><!-- Water drop / ear wash --><path d="M12 2c-3 4-6 7-6 11a6 6 0 0012 0c0-4-3-7-6-11z"/><path d="M10 15c1 1 3 1 4 0"/></svg></div>
         <h3>Spalatura Auriculara</h3>
         <p>Curatarea profesionala a canalului auditiv, indepartarea dopurilor de ceara. Procedura rapida, sigura si nedureroasa.</p>
       </div>
